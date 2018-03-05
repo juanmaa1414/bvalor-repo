@@ -1,0 +1,14 @@
+/* 
+    Created on : 10-nov-2017, 19:48:25
+    Author     : Juanma, Mayra
+*/
+
+/* Situa en forma comoda a label e input dentro de un div. */
+.input-box {
+	float: left;
+	margin-right: 20px;
+}
+
+.tag-info {
+    background-color: #9ef073;
+}
