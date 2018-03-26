@@ -60,6 +60,11 @@ class VendedoresDao
 		return $arrayof;
 	}
 	
+    /**
+     * Busca y devuelve un vendedor por su ID.
+     * @param int $id
+     * @return Vendedor
+     */
 	public function findById($id)
 	{
 		$params = ["id" => $id];

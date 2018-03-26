@@ -2,6 +2,17 @@
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+function printdie($elem, $detailed = FALSE)
+{
+	echo '<pre>';
+	if ($detailed) {
+		var_dump($elem);
+	} else {
+		print_r($elem);
+	}
+	exit;
+}
+
 try {
     (new Dotenv\Dotenv(__DIR__.'/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {

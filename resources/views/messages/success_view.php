@@ -12,13 +12,12 @@ if ( ! isset($btn_href)) {
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Información</h3>
-
-                            <p class="alert alert-success">
-                                <?= $message; ?>
-                            </p>
+							<div class="alert alert-success">
+								<h4><?= $message; ?></h4>
+							</div>
 
                             <div align="center">
-                                <a class="btn btn-success" href="<?= $btn_href; ?>">Continuar</a>
+                                <a class="btn btn-primary" href="<?= $btn_href; ?>">Aceptar</a>
                             </div>
                         </div>
                     </div>
@@ -30,13 +29,13 @@ if ( ! isset($btn_href)) {
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>Información</h3>
-
-                            <p class="alert alert-danger">
-                                <?= $message; ?>
-                            </p>
+							<div class="alert alert-danger">
+								<h4><?= $message; ?></h4>
+								<p><?= $details; ?></p>
+							</div>
 
                             <div align="center">
-                                <a class="btn btn-success" href="<?= $btn_href; ?>">Continuar</a>
+                                <a class="btn btn-primary" href="<?= $btn_href; ?>">Aceptar</a>
                             </div>
                         </div>
                     </div>

@@ -11,13 +11,7 @@ namespace App\Models;
 
 class SocioFamiliar {
 	protected $id;
-    
-    /**
-     * Id del socio jefe de familia.
-     * @var int
-     */
-    protected $idSocio;
-    
+    protected $idSocioJefeFamilia;
     protected $codTipoParentesco;
     protected $nombreCompleto;
     protected $codTipoDocUnico;
@@ -28,10 +22,10 @@ class SocioFamiliar {
      * Al instanciar aseguramos siempre al objeto con sus propiedades
      * esenciales. El resto se podran completar por "setValorACompletar()". 
      */
-    public function __construct($id = null, $idSocio, $codTipoParentesco, $nombreCompleto, 
+    public function __construct($id = null, $idSocioJefeFamilia, $codTipoParentesco, $nombreCompleto, 
                             $codTipoDocUnico, $numeroDocUnico, $fechaNacimiento) {
         $this->id = $id;
-        $this->idSocio = $idSocio;
+        $this->idSocioJefeFamilia = $idSocioJefeFamilia;
         $this->codTipoParentesco = $codTipoParentesco;
         $this->nombreCompleto = $nombreCompleto;
         $this->codTipoDocUnico = $codTipoDocUnico;
@@ -43,8 +37,8 @@ class SocioFamiliar {
         return $this->id;
     }
 
-    public function getIdSocio() {
-        return $this->idSocio;
+    public function getIdSocioJefeFamilia() {
+        return $this->idSocioJefeFamilia;
     }
 
     public function getCodTipoParentesco() {
@@ -71,8 +65,8 @@ class SocioFamiliar {
     //    $this->id = $id;
     //}
 
-    public function setIdSocio($idSocio) {
-        $this->idSocio = $idSocio;
+    public function setIdSocioJefeFamilia($idSocioJefeFamilia) {
+        $this->idSocioJefeFamilia = $idSocioJefeFamilia;
     }
 
     public function setCodTipoParentesco($codTipoParentesco) {

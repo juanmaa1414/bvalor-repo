@@ -11,10 +11,20 @@ use App\Models\Campania;
  */
 class PlanDeAbono {
 	protected $id;
-	protected $idCampania;
-	protected $idSocio;
+	protected $numeroPlan;
+
+    /**
+     * @var Campania
+     */
+	protected $campania;
+
+    /**
+     * @var Socio
+     */
+	protected $socio;
+
     protected $timestampAlta;
-    protected $valorNumero;
+    protected $valorNumero; // precio
     protected $mesDesde; // 1 al 12
     protected $mesHasta; // idem
     protected $numeros;
@@ -22,90 +32,135 @@ class PlanDeAbono {
 
     /**
      * Al instanciar aseguramos siempre al objeto con sus propiedades
-     * esenciales. El resto se podran completar por "setValorACompletar()". 
+     * esenciales. El resto se podran completar por setters.
      */
-    public function __construct($id = null, $idCampania, $idSocio, $valorNumero,
-                                $mesDesde, $mesHasta)
+    public function __construct($id = null, $numeroPlan = null, Campania $campania,
+						Socio $socio, $valorNumero, $mesDesde, $mesHasta)
     {
 		$this->id = $id;
-		$this->idCampania = $idCampania;
-        $this->idSocio = $idSocio;
+		$this->numeroPlan = $numeroPlan;
+		$this->campania = $campania;
+        $this->socio = $socio;
         $this->valorNumero = $valorNumero;
         $this->mesDesde = $mesDesde;
         $this->mesHasta = $mesHasta;
+
+		// Defaults
         $this->numeros = [];
+		$this->timestampAlta = time();
+		$this->esDadoBaja = FALSE;
 	}
-    
-    public function getId() {
+
+    public function getId()
+	{
         return $this->id;
     }
 
-    public function getIdCampania() {
-        return $this->idCampania;
+	public function getNumeroPlan()
+	{
+        return $this->numeroPlan;
     }
 
-    public function getIdSocio() {
-        return $this->idSocio;
+    public function getCampania()
+	{
+        return $this->campania;
     }
 
-    public function getTimestampAlta() {
+    public function getSocio()
+	{
+        return $this->socio;
+    }
+
+    public function getTimestampAlta()
+	{
         return $this->timestampAlta;
     }
 
-    public function getValorNumero() {
+    public function getValorNumero()
+	{
         return $this->valorNumero;
     }
 
-    public function getMesDesde() {
+    public function getMesDesde()
+	{
         return $this->mesDesde;
     }
 
-    public function getMesHasta() {
+    public function getMesHasta()
+	{
         return $this->mesHasta;
     }
 
-    public function getNumeros() {
+    public function getNumeros()
+	{
         return $this->numeros;
     }
 
-    public function getEsDadoBaja() {
+    public function getEsDadoBaja()
+	{
         return $this->esDadoBaja;
     }
 
-    //public function setId($id) {
+    //public function setId($id)
+	//{
     //    $this->id = $id;
     //}
 
-    public function setIdCampania($idCampania) {
-        $this->idCampania = $idCampania;
+	public function setNumeroPlan($numeroPlan)
+	{
+        $this->numeroPlan = $numeroPlan;
     }
 
-    public function setIdSocio($idSocio) {
-        $this->idSocio = $idSocio;
+    public function setCampania($campania)
+	{
+        $this->campania = $campania;
     }
 
-    public function setTimestampAlta($timestampAlta) {
+    public function setSocio($socio)
+	{
+        $this->socio = $socio;
+    }
+
+    public function setTimestampAlta($timestampAlta)
+	{
         $this->timestampAlta = $timestampAlta;
     }
 
-    public function setValorNumero($valorNumero) {
+    public function setValorNumero($valorNumero)
+	{
         $this->valorNumero = $valorNumero;
     }
 
-    public function setMesDesde($mesDesde) {
+    public function setMesDesde($mesDesde)
+	{
         $this->mesDesde = $mesDesde;
     }
 
-    public function setMesHasta($mesHasta) {
+    public function setMesHasta($mesHasta)
+	{
         $this->mesHasta = $mesHasta;
     }
 
-    public function setNumeros(array $numeros) {
+    public function setNumeros(array $numeros)
+	{
         $this->numeros = $numeros;
     }
 
-    public function setEsDadoBaja($esDadoBaja) {
+    public function setEsDadoBaja($esDadoBaja)
+	{
         $this->esDadoBaja = $esDadoBaja;
     }
+
+	/**
+	 * Calcula el total que se cobrará por éste plan de abono.
+	 *
+	 * @return float
+	 */
+	public function totalLiquida()
+	{
+		$cantMesesAbona = ($this->mesHasta - $this->mesDesde) + 1;
+		$total = $this->valorNumero * $cantMesesAbona;
+		return number_format($total, 2, '.', '');
+	}
 
 }

@@ -5,6 +5,8 @@ use App\Models\Socio;
 use App\Models\Vendedor;
 
 /**
+ * ### DEPRECADO / NO USO ###
+ * 
  * Socio junto con su vendedor y su socio referente si hubieran.
  * 
  * ## Clase de tipo asociación ##

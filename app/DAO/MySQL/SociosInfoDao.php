@@ -7,6 +7,8 @@ use App\Models\SocioInfo;
 use Illuminate\Support\Facades\DB;
 
 /**
+ * ### DEPRECADO / no uso ###
+ * 
  * Description of Dao
  * TODO: Asignar un interface para garantizar esten ok futuras implementaciones
  * del mismo dao "concreto" pero con otro motor de bd.

@@ -21,13 +21,14 @@ class Socio {
 
     /**
      * Al instanciar aseguramos siempre al objeto con sus propiedades
-     * esenciales. El resto se podran completar por "setValorACompletar()". 
+     * esenciales. El resto se podran completar por "setValorACompletar()".
      */
-    public function __construct($id = null, $nombreCompleto, $codTipoDocUnico,
-                                $numeroDocUnico, $domicilio, $telefono,
-                                $codTipoPersona, $esActivo)
+    public function __construct($id = null, $numeroSocio = null, $nombreCompleto,
+						$codTipoDocUnico, $numeroDocUnico, $domicilio, $telefono,
+                        $codTipoPersona, $esActivo)
     {
 		$this->id = $id;
+		$this->numeroSocio = $numeroSocio;
 		$this->nombreCompleto = $nombreCompleto;
         $this->codTipoDocUnico = $codTipoDocUnico;
         $this->numeroDocUnico = $numeroDocUnico;
@@ -38,84 +39,114 @@ class Socio {
         $this->idSocioReferente = 0;
         $this->esActivo = $esActivo;
 	}
-    
-    public function getId() {
+
+    public function getId()
+	{
         return $this->id;
     }
 
-    public function getNombreCompleto() {
+	public function getNumeroSocio()
+	{
+        return $this->numeroSocio;
+    }
+
+    public function getNombreCompleto()
+	{
         return $this->nombreCompleto;
     }
 
-    public function getCodTipoDocUnico() {
+    public function getCodTipoDocUnico()
+	{
         return $this->codTipoDocUnico;
     }
 
-    public function getNumeroDocUnico() {
+    public function getNumeroDocUnico()
+	{
         return $this->numeroDocUnico;
     }
 
-    public function getDomicilio() {
+    public function getDomicilio()
+	{
         return $this->domicilio;
     }
 
-    public function getTelefono() {
+    public function getTelefono()
+	{
         return $this->telefono;
     }
 
-    public function getIdVendedor() {
+    public function getIdVendedor()
+	{
         return $this->idVendedor;
     }
 
-    public function getCodTipoPersona() {
+    public function getCodTipoPersona()
+	{
         return $this->codTipoPersona;
     }
 
-    public function getIdSocioReferente() {
+    public function getIdSocioReferente()
+	{
         return $this->idSocioReferente;
     }
 
-    public function getEsActivo() {
+    public function getEsActivo()
+	{
         return $this->esActivo;
     }
 
-    //public function setId($id) {
+    //public function setId($id)
+	//{
     //    $this->id = $id;
     //}
 
-    public function setNombreCompleto($nombreCompleto) {
+	public function setNumeroSocio($numeroSocio)
+	{
+        $this->numeroSocio = $numeroSocio;
+    }
+
+    public function setNombreCompleto($nombreCompleto)
+	{
         $this->nombreCompleto = $nombreCompleto;
     }
 
-    public function setCodTipoDocUnico($codTipoDocUnico) {
+    public function setCodTipoDocUnico($codTipoDocUnico)
+	{
         $this->codTipoDocUnico = $codTipoDocUnico;
     }
 
-    public function setNumeroDocUnico($numeroDocUnico) {
+    public function setNumeroDocUnico($numeroDocUnico)
+	{
         $this->numeroDocUnico = $numeroDocUnico;
     }
 
-    public function setDomicilio($domicilio) {
+    public function setDomicilio($domicilio)
+	{
         $this->domicilio = $domicilio;
     }
 
-    public function setTelefono($telefono) {
+    public function setTelefono($telefono)
+	{
         $this->telefono = $telefono;
     }
 
-    public function setIdVendedor($idVendedor) {
+    public function setIdVendedor($idVendedor)
+	{
         $this->idVendedor = $idVendedor;
     }
 
-    public function setCodTipoPersona($codTipoPersona) {
+    public function setCodTipoPersona($codTipoPersona)
+	{
         $this->codTipoPersona = $codTipoPersona;
     }
 
-    public function setIdSocioReferente($idSocioReferente) {
+    public function setIdSocioReferente($idSocioReferente)
+	{
         $this->idSocioReferente = $idSocioReferente;
     }
 
-    public function setEsActivo($esActivo) {
+    public function setEsActivo($esActivo)
+	{
         $this->esActivo = $esActivo;
     }
 

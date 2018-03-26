@@ -18,7 +18,7 @@ class MapTipos {
         '1' => 'PERS. FISICA',
         '2' => 'PERS. JURIDICA'
     ];
-    
+
     const TIPOS_PARENTESCO = [
         '1' => 'PADRE',
         '2' => 'MADRE',
@@ -30,6 +30,7 @@ class MapTipos {
         '8' => 'BISABUELO/A',
         '9' => 'TIO/A',
         '10' => 'SOBRINO/A',
-        '11' => 'NIETO/A'
+        '11' => 'NIETO/A',
+		'12' => 'BISNIETO/A'
     ];
 }
